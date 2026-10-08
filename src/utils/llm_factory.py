@@ -16,7 +16,12 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 import config
 
 
-def get_llm(provider: str = None, temperature: float = 0.0):
+def get_llm(
+    provider: str = None,
+    temperature: float = 0.0,
+    model_override: str = None,
+    response_mime_type: str = None,
+):
     """
     Trả về BaseChatModel tương ứng với provider được chọn.
 
@@ -24,6 +29,8 @@ def get_llm(provider: str = None, temperature: float = 0.0):
         provider    : "openai" | "gemini" | "anthropic" | "ollama" | "openrouter"
                       Mặc định: đọc PROVIDER từ .env (config.PROVIDER)
         temperature : độ ngẫu nhiên (0.0 = tất định, 1.0 = sáng tạo)
+        model_override: chọn model riêng cho tác vụ, nếu provider hỗ trợ
+        response_mime_type: định dạng phản hồi Gemini, ví dụ application/json
 
     Returns:
         BaseChatModel instance sẵn sàng sử dụng
@@ -47,11 +54,22 @@ def get_llm(provider: str = None, temperature: float = 0.0):
 
     elif provider == "gemini":
         from langchain_google_genai import ChatGoogleGenerativeAI
-        return ChatGoogleGenerativeAI(
-            model=config.GEMINI_MODEL,
-            google_api_key=config.GOOGLE_API_KEY,
-            temperature=temperature,
-        )
+        from langchain_core.rate_limiters import InMemoryRateLimiter
+        kwargs = {
+            "model": model_override or config.GEMINI_MODEL,
+            "google_api_key": config.GOOGLE_API_KEY,
+            "temperature": temperature,
+            "rate_limiter": InMemoryRateLimiter(
+                requests_per_second=1 / 4.2,
+                check_every_n_seconds=0.1,
+                max_bucket_size=1,
+            ),
+            "retries": 2,
+            "request_timeout": 60,
+        }
+        if response_mime_type:
+            kwargs["response_mime_type"] = response_mime_type
+        return ChatGoogleGenerativeAI(**kwargs)
 
     elif provider == "anthropic":
         from langchain_anthropic import ChatAnthropic

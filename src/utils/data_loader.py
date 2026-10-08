@@ -9,6 +9,7 @@ Cách dùng:
     vectorstore = build_vectorstore(chunks, embeddings)
 """
 from pathlib import Path
+import time
 
 
 def load_knowledge_base(path: str = None) -> str:
@@ -64,6 +65,34 @@ def build_vectorstore(chunks: list, embeddings):
     from langchain_community.vectorstores import FAISS
 
     print(f"🔨 Đang tạo FAISS index từ {len(chunks)} chunks ...")
+    try:
+        from langchain_google_genai.embeddings import GoogleGenerativeAIEmbeddings
+    except ImportError:
+        GoogleGenerativeAIEmbeddings = ()
+
+    if isinstance(embeddings, GoogleGenerativeAIEmbeddings):
+        # Gemini's free tier is limited to 100 embedded inputs per minute.
+        # Keep the lab's required 500/50 chunking and pace batches when needed.
+        batch_size = 100
+        vectors = []
+        for start in range(0, len(chunks), batch_size):
+            if start:
+                print("⏳ Đợi 62 giây để tuân thủ quota embedding Gemini ...")
+                time.sleep(62)
+            batch = chunks[start : start + batch_size]
+            for attempt in range(3):
+                try:
+                    vectors.extend(embeddings.embed_documents(batch))
+                    break
+                except Exception as exc:
+                    if "RESOURCE_EXHAUSTED" not in str(exc) or attempt == 2:
+                        raise
+                    print("⏳ Gemini embedding đang chạm quota; đợi 62 giây rồi thử lại ...")
+                    time.sleep(62)
+        vectorstore = FAISS.from_embeddings(zip(chunks, vectors), embeddings)
+        print("✅ FAISS vectorstore đã sẵn sàng.")
+        return vectorstore
+
     vectorstore = FAISS.from_texts(chunks, embeddings)
     print("✅ FAISS vectorstore đã sẵn sàng.")
     return vectorstore

@@ -1,0 +1,155 @@
+Day 22 / Step 1 — LangSmith RAG pipeline
+Gemini model: gemini-3.5-flash-lite | LangSmith project: day22-lab
+Completed 50 successful RAG queries. Run resumed at question 18 after the free-tier RPM limit.
+========================================================================
+[01/50] Q: What are the three main types of machine learning?
+       A: Dựa vào ngữ cảnh được cung cấp, ba loại chính của học máy (machine learning) là:
+
+[02/50] Q: What is overfitting in machine learning?
+       A: Dựa vào ngữ cảnh được cung cấp, **overfitting** (hiện tượng học vẹt/quá khớp) xảy ra khi một mô hình
+
+[03/50] Q: Explain the bias-variance tradeoff.
+       A: Dựa trên ngữ cảnh được cung cấp, đánh đổi giữa độ chệch và phương sai (bias-variance tradeoff) là mộ
+
+[04/50] Q: How does regularization prevent overfitting?
+       A: Dựa vào context được cung cấp, regularization ngăn ngừa overfitting (hiện tượng mô hình học quá kỹ d
+
+[05/50] Q: What is cross-validation?
+       A: Dựa trên context được cung cấp, cross-validation là một kỹ thuật đánh giá mô hình giúp đưa ra ước tí
+
+[06/50] Q: What is backpropagation?
+       A: Dựa trên context được cung cấp, Backpropagation (lan truyền ngược) là thuật toán cốt lõi để huấn luy
+
+[07/50] Q: What are Convolutional Neural Networks primarily used for?
+       A: Dựa trên context được cung cấp, Convolutional Neural Networks (CNNs) được sử dụng chuyên biệt cho vi
+
+[08/50] Q: How do LSTM networks address the vanishing gradient problem?
+       A: Dựa trên context được cung cấp, mạng LSTM giải quyết vấn đề vanishing gradient bằng cách sử dụng cấu
+
+[09/50] Q: What activation functions are commonly used in neural networ
+       A: Dựa trên context được cung cấp, các hàm kích hoạt (activation functions) phổ biến bao gồm:
+
+[10/50] Q: What is the role of pooling layers in CNNs?
+       A: Dựa trên ngữ cảnh được cung cấp, vai trò của các lớp pooling (pooling layers) trong CNNs bao gồm:
+
+[11/50] Q: What is the transformer architecture?
+       A: Dựa vào ngữ cảnh được cung cấp, kiến trúc transformer là một kiến trúc đã cách mạng hóa lĩnh vực xử
+
+[12/50] Q: What are word embeddings?
+       A: Dựa trên context được cung cấp, word embeddings (biểu diễn từ) là các vector dày đặc (dense vector r
+
+[13/50] Q: What is transfer learning in NLP?
+       A: Dựa trên văn bản cung cấp, transfer learning trong NLP có nghĩa là tiền huấn luyện (pre-training) cá
+
+[14/50] Q: How does BERT handle language understanding?
+       A: Dựa trên ngữ cảnh được cung cấp, BERT xử lý việc hiểu ngôn ngữ thông qua các phương pháp sau:
+
+[15/50] Q: What is self-attention in transformers?
+       A: Dựa trên context được cung cấp, self-attention (cơ chế tự chú ý) là cơ chế cốt lõi mang lại sức mạnh
+
+[16/50] Q: What is GPT and how is it trained?
+       A: Dựa trên context được cung cấp:
+
+[17/50] Q: What is instruction tuning?
+       A: Dựa trên context được cung cấp, **Instruction tuning** (tinh chỉnh hướng dẫn) là một kỹ thuật tinh c
+
+[18/50] Q: What is RLHF?
+       A: Dựa trên context được cung cấp, **RLHF** là viết tắt của **Reinforcement Learning from Human Feedbac
+
+[19/50] Q: What is chain-of-thought prompting?
+       A: Dựa vào ngữ cảnh được cung cấp, **chain-of-thought prompting** (kỹ thuật nhắc nhở chuỗi tư duy) là m
+
+[20/50] Q: What is the context length of GPT-4?
+       A: Dựa trên context được cung cấp, GPT-4 hỗ trợ độ dài ngữ cảnh lên tới 128K token (128K tokens of cont
+
+[21/50] Q: What is Retrieval-Augmented Generation?
+       A: Dựa trên ngữ cảnh được cung cấp, Retrieval-Augmented Generation (RAG) là một phương pháp bổ sung cho
+
+[22/50] Q: What are the main components of a RAG pipeline?
+       A: Dựa vào ngữ cảnh được cung cấp, các thành phần chính của một RAG pipeline bao gồm:
+
+[23/50] Q: What is dense retrieval?
+       A: Dựa vào context được cung cấp, dense retrieval (truy hồi dày đặc) là một phương pháp truy hồi tài li
+
+[24/50] Q: Why is chunking strategy important in RAG?
+       A: Dựa vào đoạn văn cung cấp, chiến lược chia nhỏ (chunking strategy) rất quan trọng trong RAG vì nó ản
+
+[25/50] Q: What advanced RAG techniques exist beyond basic retrieval?
+       A: Dựa trên context được cung cấp, các kỹ thuật Advanced RAG (Retrieval-Augmented Generation) nâng cao
+
+[26/50] Q: What are vector databases used for?
+       A: Dựa trên ngữ cảnh được cung cấp, vector databases (cơ sở dữ liệu vector) được sử dụng để:
+
+[27/50] Q: What is FAISS?
+       A: Dựa trên context được cung cấp, FAISS (Facebook AI Similarity Search) là một thư viện được sử dụng r
+
+[28/50] Q: How do text embeddings capture semantic meaning?
+       A: Dựa trên context được cung cấp, text embeddings captures semantic meaning (nắm bắt ý nghĩa ngữ nghĩa
+
+[29/50] Q: What is HNSW?
+       A: Dựa vào context được cung cấp, HNSW (Hierarchical Navigable Small World) là một thuật toán dựa trên
+
+[30/50] Q: What is hybrid search in vector databases?
+       A: Dựa trên ngữ cảnh được cung cấp, hybrid search (tìm kiếm kết hợp) kết hợp thế mạnh của cả phương phá
+
+[31/50] Q: What is LangChain?
+       A: Dựa trên context được cung cấp, LangChain là một framework mã nguồn mở (open-source framework) giúp
+
+[32/50] Q: What is LangChain Expression Language (LCEL)?
+       A: Dựa vào context được cung cấp, LangChain Expression Language (LCEL) là một cú pháp khai báo (declara
+
+[33/50] Q: What is LangGraph?
+       A: Dựa trên context được cung cấp, LangGraph là một phần mở rộng của LangChain dùng để xây dựng các ứng
+
+[34/50] Q: What memory types does LangChain support?
+       A: Dựa vào ngữ cảnh được cung cấp, LangChain hỗ trợ các loại bộ nhớ (memory types) sau:
+
+[35/50] Q: What are LangChain retrievers?
+       A: Dựa vào ngữ cảnh được cung cấp, LangChain retrievers là các thành phần có nhiệm vụ tìm nạp các tài l
+
+[36/50] Q: What is LangSmith?
+       A: Dựa trên context được cung cấp, LangSmith là một công cụ giúp giám sát toàn diện các ứng dụng LLM tr
+
+[37/50] Q: What information do LangSmith traces capture?
+       A: Dựa trên context được cung cấp, LangSmith traces ghi lại các thông tin sau cho mọi thành phần trong
+
+[38/50] Q: What is the LangSmith Prompt Hub?
+       A: Dựa vào context được cung cấp, LangSmith Prompt Hub là một kho lưu trữ tập trung (centralized reposi
+
+[39/50] Q: How does LangSmith help monitor production LLM applications?
+       A: Dựa trên context được cung cấp, LangSmith giúp giám sát các ứng dụng LLM trong môi trường production
+
+[40/50] Q: What are LangSmith datasets used for?
+       A: Dựa trên context được cung cấp, LangSmith datasets được sử dụng cho việc đánh giá có hệ thống (syste
+
+[41/50] Q: What is RAGAS?
+       A: Dựa vào context được cung cấp, **RAGAS** (Retrieval Augmented Generation Assessment) là một framewor
+
+[42/50] Q: How does RAGAS compute faithfulness?
+       A: Dựa trên context được cung cấp, RAGAS tính toán độ trung thực (faithfulness) bằng cách:
+
+[43/50] Q: What is answer relevancy in RAGAS?
+       A: Dựa trên context được cung cấp, Answer relevancy trong RAGAS đo lường mức độ câu trả lời giải quyết
+
+[44/50] Q: What is context recall in RAGAS?
+       A: Dựa vào ngữ cảnh được cung cấp, **Context recall** trong RAGAS đo lường mức độ bao phủ đầy đủ của cá
+
+[45/50] Q: What inputs does RAGAS evaluation require?
+       A: Dựa trên context được cung cấp, RAGAS evaluation yêu cầu các đầu vào sau:
+
+[46/50] Q: What is Guardrails AI?
+       A: Dựa trên context được cung cấp, Guardrails AI là một framework mã nguồn mở (open-source framework) d
+
+[47/50] Q: What is PII and why is it important to detect in LLM respons
+       A: Dựa trên context được cung cấp:
+
+[48/50] Q: What does structured output validation ensure?
+       A: Dựa trên context được cung cấp, structured output validation đảm bảo rằng các phản hồi của LLM tuân
+
+[49/50] Q: What is Constitutional AI?
+       A: Dựa trên context được cung cấp, Constitutional AI là một phương pháp căn chỉnh (aligning) các mô hìn
+
+[50/50] Q: What are common AI safety concerns with LLMs?
+       A: Dựa trên context được cung cấp, các mối quan ngại phổ biến về an toàn AI đối với LLM bao gồm:
+
+✅ 50 successful rag-query runs submitted to LangSmith.
